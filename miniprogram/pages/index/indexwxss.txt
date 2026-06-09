@@ -1,0 +1,73 @@
+/* 全局样式 */
+page {
+  background: #f6f9ff;
+  margin: 0;
+  padding: 0;
+}
+
+/* 容器：正常流式布局，不会跑到底部 */
+.container {
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+}
+
+/* 标题区域 */
+.header {
+  text-align: center;
+  margin-bottom: 50rpx;
+  margin-top: 20rpx;
+}
+
+.title {
+  font-size: 46rpx;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.subtitle {
+  font-size: 26rpx;
+  color: #7f8c8d;
+  margin-top: 10rpx;
+}
+
+/* 九宫格：正常布局，紧跟标题下方 */
+.grid-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-item {
+  width: 210rpx;
+  height: 220rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(0, 86, 255, 0.08);
+  margin-bottom: 24rpx;
+}
+
+.grid-item .icon {
+  font-size: 58rpx;
+  margin-bottom: 16rpx;
+}
+
+.grid-item .text {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 未开发功能置灰 */
+.grid-item.disabled {
+  opacity: 0.4;
+}
+
+/* 点击效果 */
+.grid-item:active {
+  transform: scale(0.96);
+  transition: 0.2s;
+}

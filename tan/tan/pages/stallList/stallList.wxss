@@ -1,0 +1,76 @@
+page{
+  background: #f5f7fa;
+}
+.list-page{
+  padding-bottom: 30rpx;
+}
+/* 筛选栏 */
+.filter-bar{
+  display: flex;
+  background: #fff;
+  padding: 20rpx 10rpx;
+}
+.filter-item{
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+}
+.filter-item.active{
+  color: #0F3460;
+  font-weight: bold;
+}
+/* 定位 */
+.location-tip{
+  padding: 20rpx;
+  font-size: 24rpx;
+  color: #777;
+}
+/* 摊位卡片 */
+.stall-list{
+  padding: 0 20rpx;
+}
+.stall-card{
+  display: flex;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+}
+.stall-pic{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 12rpx;
+}
+.card-right{
+  flex: 1;
+  margin-left: 20rpx;
+}
+.stall-name{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.stall-cate,.stall-addr{
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+.line-box{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12rpx;
+}
+.time-text{
+  font-size: 22rpx;
+  color: #999;
+}
+.dis-text{
+  font-size: 24rpx;
+  color: #07c160;
+}
+.empty-box{
+  text-align: center;
+  padding: 120rpx 0;
+  font-size: 26rpx;
+  color: #999;
+}

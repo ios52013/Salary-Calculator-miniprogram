@@ -1,0 +1,59 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* 全局通用美化样式 新增 start */
+page{
+  background-color: #f5f7fa;
+  font-size: 28rpx;
+  color: #333;
+}
+/* 通用白色卡片 */
+.card-box{
+  background: #fff;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05);
+}
+/* 通用实心按钮 */
+.btn-solid{
+  border-radius: 10rpx;
+  border: none;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+/* 通用输入框统一样式 */
+input{
+  border-radius: 8rpx;
+}
+/* 无数据空状态通用样式 */
+.empty-tip{
+  text-align: center;
+  padding: 80rpx 0;
+  color: #999;
+  font-size: 26rpx;
+}
+/* 文字主次色 */
+.text-red{
+  color: #f53f3f;
+}
+.text-gray{
+  color: #888;
+}
+.text-blue{
+  color: #0F3460;
+}
+/* 间距统一 */
+.pad-20{
+  padding: 20rpx;
+}
+.mar-top20{
+  margin-top: 20rpx;
+}
+/* 全局美化 end */

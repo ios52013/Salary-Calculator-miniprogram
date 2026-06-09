@@ -1,0 +1,28 @@
+.userCard {
+  background: #0F3460;
+  padding: 40rpx 30rpx;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.userCard image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.nick {
+  font-size: 34rpx;
+  margin-left: 30rpx;
+}
+
+.menuList {
+  background: #fff;
+  margin-top: 20rpx;
+}
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}

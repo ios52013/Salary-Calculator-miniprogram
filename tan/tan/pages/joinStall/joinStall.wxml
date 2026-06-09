@@ -1,0 +1,31 @@
+<view class="join-box">
+  <view class="title">摊主入驻申请</view>
+  <view class="form-item">
+    <text class="label">摊位名称</text>
+    <input class="input" placeholder="请输入你的摊位名字" bindinput="inputName" value="{{stallName}}"/>
+  </view>
+  <view class="form-item">
+    <text class="label">经营品类</text>
+    <picker range="{{cateList}}" bindchange="selectCate">
+      <view class="picker">{{stallCate||"请选择经营品类"}}</view>
+    </picker>
+  </view>
+  <view class="form-item">
+    <text class="label">摆摊地址</text>
+    <input class="input" placeholder="填写详细摆摊地点" bindinput="inputAddr" value="{{stallAddr}}"/>
+  </view>
+  <view class="form-item">
+    <text class="label">联系电话</text>
+    <input class="input" placeholder="输入手机号码" bindinput="inputPhone" value="{{stallPhone}}" type="number"/>
+  </view>
+  <view class="form-item">
+    <text class="label">营业时间</text>
+    <input class="input" placeholder="例：16:00-22:00" bindinput="inputTime" value="{{stallTime}}"/>
+  </view>
+  <view class="form-item">
+    <text class="label">摊位简介</text>
+    <textarea class="textarea" placeholder="简单介绍主营商品特色" bindinput="inputIntro" value="{{stallIntro}}"></textarea>
+  </view>
+
+  <button class="submit-btn" bindtap="submitInfo">提交入驻信息</button>
+</view>

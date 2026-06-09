@@ -1,0 +1,31 @@
+<view class="detail-box">
+  <!-- 顶部封面 -->
+  <view class="top-banner">
+    <image src="/images/stall_def.jpg" class="banner-img" mode="widthFix"></image>
+  </view>
+
+  <!-- 基础信息 -->
+  <view class="info-card">
+    <view class="name">{{stallInfo.name}}</view>
+    <view class="tag">品类：{{stallInfo.cate}}</view>
+    <view class="addr">📍 摆摊地址：{{stallInfo.addr}}</view>
+    <view class="time">🕒 营业时间：{{stallInfo.time||"全天不定时出摊"}}</view>
+  </view>
+
+  <!-- 摊位简介 -->
+  <view class="intro-card">
+    <view class="intro-title">摊位介绍</view>
+    <view class="intro-text">{{stallInfo.intro||"摊主暂未填写介绍"}}</view>
+  </view>
+
+  <!-- 新增：查看在售商品入口 -->
+  <view class="look-goods" bindtap="goGoodsPage">
+    浏览该摊位全部商品 >
+  </view>
+
+  <!-- 联系按钮 -->
+  <view class="btn-wrap">
+    <button class="call-btn" bindtap="makeCall">📞 一键联系摊主</button>
+    <button class="msg-btn" bindtap="goMessage">💬 在线留言咨询</button>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="goods-page">
+  <!-- 右上角购物车图标 -->
+  <view class="top-cart-icon" bindtap="goCartPage">
+    <image src="/images/cart.png" class="cart-img"></image>
+    <view class="cart-num" wx:if="{{cartTotal > 0}}">{{cartTotal}}</view>
+  </view>
+
+  <view class="title-text">摊位在售商品</view>
+
+  <view class="goods-list" wx:if="{{goodsList.length>0}}">
+    <view 
+      class="goods-item" 
+      wx:for="{{goodsList}}" 
+      wx:key="id"
+      bindtap="goGoodsDetail"
+      data-item="{{item}}"
+    >
+      <image class="goods-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="goods-info">
+        <text class="goods-name">{{item.name}}</text>
+        <text class="goods-price">¥{{item.price}}</text>
+        <text class="goods-stock">库存：{{item.stock}}份</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="empty-tips" wx:else>
+    该摊主暂未上架任何商品
+  </view>
+</view>

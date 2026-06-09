@@ -1,0 +1,252 @@
+.head {
+  background: #fff;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 16rpx;
+}
+.info {
+  margin-left: 24rpx;
+}
+.name {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.distance {
+  font-size: 26rpx;
+  color: #777;
+  margin: 8rpx 0;
+}
+.state {
+  font-size: 26rpx;
+  color: #07c160;
+}
+
+.desc {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 30rpx;
+}
+.title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+.text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.goodsTit {
+  padding: 30rpx 20rpx 10rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.goodsList {
+  background: #fff;
+  margin: 0 20rpx 120rpx;
+  border-radius: 16rpx;
+}
+.item {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.item:last-child {
+  border-bottom: 0;
+}
+.gName {
+  flex: 1;
+  font-size: 28rpx;
+}
+.gPrice {
+  color: #f30;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+}
+.addBtn {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  background: #0F3460;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+
+/* 数量选择器 */
+.cartBox {
+  display: flex;
+  align-items: center;
+}
+.minus, .plus {
+  width: 40rpx;
+  height: 40rpx;
+  background: #0F3460;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+}
+.count {
+  margin: 0 20rpx;
+  font-size: 28rpx;
+}
+
+/* 底部栏 */
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid #eee;
+}
+.cartIcon {
+  width: 80rpx;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 10rpx;
+  right: 0;
+  background: red;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 8rpx;
+  border-radius: 20rpx;
+}
+.price {
+  flex: 1;
+  font-size: 28rpx;
+  color: #f30;
+  font-weight: bold;
+}
+.buyBtn {
+  background: #0F3460;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 15rpx 40rpx;
+  font-size: 28rpx;
+}
+
+.orderBtn {
+  width: 90%;
+  background: #0F3460;
+  color: #fff;
+  margin: 30rpx auto;
+  border-radius: 12rpx;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+}
+
+.stockText {
+  font-size: 24rpx;
+  color: #888;
+  margin-left: 10rpx;
+}
+
+/* 详情页追加美化 */
+.head{
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+}
+.desc{
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.04);
+}
+.item{
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.04);
+}
+.orderBtn{
+  border-radius: 12rpx;
+  height: 80rpx;
+}
+.minus,.plus,.addBtn{
+  border-radius: 6rpx;
+}
+/* 修复提交订单按钮文字居中 */
+.orderBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: normal;
+}
+
+/* ============================== */
+/* 【新增】模拟支付弹窗样式（不影响原有任何样式） */
+/* ============================== */
+.pay-mask{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.pay-box{
+  width: 80%;
+  background: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.pay-title{
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  padding: 30rpx 0 10rpx;
+}
+.pay-price{
+  text-align: center;
+  font-size: 44rpx;
+  color: #f53f3f;
+  padding: 15rpx 0;
+}
+.pay-tip{
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+  padding-bottom: 30rpx;
+}
+.pay-btn-group{
+  display: flex;
+  border-top: 1rpx solid #eee;
+}
+.pay-cancel,.pay-confirm{
+  flex: 1;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+.pay-cancel{
+  color: #666;
+  border-right: 1rpx solid #eee;
+}
+.pay-confirm{
+  color: #07c160;
+  font-weight: 500;
+}

@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="logoText">摊哪儿</view>
+  <view class="subTitle">附近地摊一键查询</view>
+
+  <block wx:if="{{!userInfo}}">
+    <button bindtap="getWxUserInfo" class="loginBtn">
+      微信快捷登录
+    </button>
+  </block>
+
+  <block wx:else>
+    <view class="userBox">
+      <image src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+      <text class="nick">{{userInfo.nickName}}</text>
+    </view>
+    <button bindtap="goIndex" class="loginBtn enterBtn">进入首页</button>
+  </block>
+</view>

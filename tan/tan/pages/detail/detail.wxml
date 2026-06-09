@@ -1,0 +1,58 @@
+<!-- 摊位头部信息 -->
+<view class="head">
+  <image class="logo" src="/images/t1.jpg"></image>
+  <view class="info">
+    <view class="name">老长沙臭豆腐</view>
+    <view class="distance">距离 300米</view>
+    <view class="state">营业中</view>
+  </view>
+</view>
+
+<!-- 摊位简介 -->
+<view class="desc">
+  <view class="title">摊位简介</view>
+  <view class="text">正宗长沙口味，现炸现卖，干净卫生。</view>
+</view>
+
+<!-- 商品列表 -->
+<view class="goodsTit">全部商品</view>
+<view class="goodsList">
+  <view class="item" wx:for="{{goodsList}}" wx:key="index">
+    <view class="gName">{{item.name}}</view>
+    <view class="gPrice">￥{{item.price}}</view>
+    
+    <!-- 只加了这一行 库存 -->
+    <view class="stockText">库存：{{item.stock}}</view>
+
+    <!-- 数量加减 你原来的代码 完全没动 -->
+    <view class="cartBox" wx:if="{{item.count > 0}}">
+      <text class="minus" bindtap="changeCount" data-index="{{index}}" data-type="minus">-</text>
+      <text class="count">{{item.count}}</text>
+      <text class="plus" bindtap="changeCount" data-index="{{index}}" data-type="plus">+</text>
+    </view>
+    <text class="addBtn" wx:else bindtap="addCart" data-index="{{index}}">+</text>
+  </view>
+</view>
+
+<!-- 提交订单 你原来的按钮 完全没动 -->
+<button 
+  class="orderBtn" 
+  bindtap="createOrder"
+>
+  提交订单（合计：¥{{totalPrice}}）
+</button>
+
+<!-- ====================== -->
+<!-- 模拟微信支付弹窗（新增，不影响任何原有功能） -->
+<!-- ====================== -->
+<view class="pay-mask" wx:if="{{showPayModal}}">
+  <view class="pay-box">
+    <view class="pay-title">确认支付</view>
+    <view class="pay-price">¥{{payAmount}}</view>
+    <view class="pay-tip">请核对金额后完成支付</view>
+    <view class="pay-btn-group">
+      <view class="pay-cancel" bindtap="closePayModal">取消</view>
+      <view class="pay-confirm" bindtap="confirmPay">确认支付</view>
+    </view>
+  </view>
+</view>

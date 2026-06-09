@@ -1,0 +1,90 @@
+<view class="container">
+  <!-- 顶部摊位信息 -->
+  <view class="sellerHeader">
+    <view class="shopInfo">
+
+      <!-- ====================== -->
+      <!-- 已入驻：显示摊位信息 -->
+      <!-- ====================== -->
+      <view wx:if="{{myStall.id}}">
+        <view wx:if="{{!isEditShop}}">
+          <view class="shopName">{{myStall.name || shopName}}</view>
+          <view class="shopDesc">{{myStall.intro || shopDesc}}</view>
+          <view class="shopTime">{{myStall.time || shopTime}} | 已售{{saleNum}}单</view>
+        </view>
+        <view wx:else>
+          <input class="shopInp" value="{{shopName}}" bindinput="inputShopName" placeholder="输入摊位名称"/>
+          <input class="shopInp" value="{{shopDesc}}" bindinput="inputShopDesc" placeholder="输入摊位简介"/>
+          <input class="shopInp" value="{{shopTime}}" bindinput="inputShopTime" placeholder="输入营业时段"/>
+        </view>
+      </view>
+
+      <!-- ====================== -->
+      <!-- 未入驻：显示提示 + 按钮 -->
+      <!-- ====================== -->
+      <view wx:else class="no-stall-box">
+        <text class="no-tip">您还未入驻摊位，请先完成入驻</text>
+        <button class="go-join-btn" bindtap="goJoinStall">立即前往入驻</button>
+      </view>
+
+    </view>
+
+    <!-- 编辑按钮 只有已入驻才显示 -->
+    <view class="editBtn" wx:if="{{myStall.id}}" bindtap="toggleEditShop">
+      {{isEditShop ? '保存' : '编辑'}}
+    </view>
+  </view>
+
+  <!-- ====================== -->
+  <!-- 营业状态：仅已入驻显示 -->
+  <!-- ====================== -->
+  <view class="statusBox" wx:if="{{myStall.id}}">
+    <text class="statusText">营业状态：</text>
+    <switch checked="{{isOpen}}" bindchange="toggleOpen"></switch>
+    <text class="{{isOpen?'openText':'closeText'}}">{{isOpen?'正常出摊':'暂停营业'}}</text>
+  </view>
+
+  <!-- ====================== -->
+  <!-- 商品管理：仅已入驻显示 -->
+  <!-- ====================== -->
+  <view wx:if="{{myStall.id}}">
+    <!-- 商品库存管理 -->
+    <view class="goodsTit">商品库存管理</view>
+
+    <!-- 表头（水平不折行版） -->
+    <view class="goodsHead">
+      <text class="col1">序号</text>
+      <text class="col2">商品名称</text>
+      <text class="col3">价格</text>
+      <text class="col4">库存</text>
+      <text class="col5">操作</text>
+    </view>
+
+    <view class="goodsWrap">
+      <view class="goodsItem" wx:for="{{goodsList}}" wx:key="index">
+        <view class="col1">{{index+1}}</view>
+        <image 
+          class="goods-img" 
+          src="{{item.img || '/images/stall_def.jpg'}}" 
+          mode="aspectFill"
+          bindtap="changeGoodsImg"  
+          data-index="{{index}}"     
+        ></image>
+        <input class="col2" placeholder="商品名称" value="{{item.name}}" bindinput="editName" data-index="{{index}}"/>
+        <input class="col3" placeholder="价格" value="{{item.price}}" bindinput="editPrice" data-index="{{index}}"/>
+        <input class="col4" placeholder="库存" value="{{item.stock}}" bindinput="editStock" data-index="{{index}}" type="number"/>
+        <text class="col5 delBtn" bindtap="delGoods" data-index="{{index}}">删除</text>
+      </view>
+    </view>
+
+    <!-- 添加商品 -->
+    <view class="addGoods" bindtap="addGoods">+ 添加新商品</view>
+
+    <!-- 底部功能按钮 -->
+    <button class="saveBtn" bindtap="saveGoods">保存全部商品设置</button>
+    <view class="tools">
+      <button bindtap="goSellerOrder">订单管理</button>
+    </view>
+  </view>
+
+</view>

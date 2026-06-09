@@ -1,0 +1,37 @@
+<view class="list-page">
+  <!-- 顶部筛选 -->
+  <view class="filter-bar">
+    <view class="filter-item {{type==0?'active':''}}" bindtap="switchType" data-type="0">全部</view>
+    <view class="filter-item {{type==1?'active':''}}" bindtap="switchType" data-type="1">美食小吃</view>
+    <view class="filter-item {{type==2?'active':''}}" bindtap="switchType" data-type="2">果蔬生鲜</view>
+    <view class="filter-item {{type==3?'active':''}}" bindtap="switchType" data-type="3">服饰日用</view>
+  </view>
+
+  <!-- 定位提示 -->
+  <view class="location-tip">
+    📍 当前位置：{{city||"获取定位中..."}}
+  </view>
+
+  <!-- 摊位列表 -->
+  <view class="stall-list" wx:if="{{filterList.length>0}}">
+    <view class="stall-card" wx:for="{{filterList}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+      <view class="card-left">
+        <image class="stall-pic" src="/images/stall_def.jpg" mode="aspectFill"></image>
+      </view>
+      <view class="card-right">
+        <view class="stall-name">{{item.name}}</view>
+        <view class="stall-cate">品类：{{item.cate}}</view>
+        <view class="stall-addr">地址：{{item.addr}}</view>
+        <view class="line-box">
+          <text class="time-text">营业时间：{{item.time||"暂无"}}</text>
+          <text class="dis-text">{{item.distance}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-box" wx:else>
+    暂无对应摊位，快去邀请摊主入驻吧
+  </view>
+</view>

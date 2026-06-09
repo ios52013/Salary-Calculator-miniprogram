@@ -1,0 +1,33 @@
+<view class="detail-box">
+  <!-- 顶部悬浮购物车图标带数量 -->
+  <view class="top-cart-icon" bindtap="goCartPage">
+    <image src="/images/cart.png" class="cart-img"></image>
+    <view class="cart-num" wx:if="{{cartTotal > 0}}">{{cartTotal}}</view>
+  </view>
+
+  <!-- 商品大图 -->
+  <image class="detail-img" src="{{goodsInfo.img}}" mode="aspectFill"></image>
+
+  <!-- 商品信息 -->
+  <view class="info-box">
+    <view class="goods-name">{{goodsInfo.name}}</view>
+    <view class="goods-price">¥{{goodsInfo.price}}</view>
+    <view class="stock-txt">剩余库存：{{goodsInfo.stock}}份</view>
+  </view>
+
+  <!-- 下单数量选择 -->
+  <view class="num-box">
+    <text>购买数量</text>
+    <view class="num-wrap">
+      <text class="minus" bindtap="cutNum">-</text>
+      <input class="num-input" value="{{buyNum}}" type="number" bindinput="inputNum"/>
+      <text class="add" bindtap="addNum">+</text>
+    </view>
+  </view>
+
+  <!-- 底部并排按钮 -->
+  <view class="bottom-btn">
+    <button class="btn-cart" bindtap="goCartPage">去购物车</button>
+    <button class="btn-add" bindtap="addCart">加入购物车</button>
+  </view>
+</view>

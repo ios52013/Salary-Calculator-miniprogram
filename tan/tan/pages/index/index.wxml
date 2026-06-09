@@ -1,0 +1,68 @@
+<!-- 首页 -->
+<view class="home-page">
+  <!-- 顶部搜索栏 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索摊位/商品" />
+    <view class="search-icon">🔍</view>
+  </view>
+
+  <!-- 轮播Banner -->
+  <swiper class="home-swiper" indicator-dots circular autoplay interval="3000">
+    <swiper-item>
+      <image src="/images/banner1.jpg" class="swiper-img" mode="widthFix"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/banner2.jpg" class="swiper-img" mode="widthFix"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 分类导航 -->
+  <view class="cate-wrap">
+    <view class="cate-item" bindtap="goPage" data-url="/pages/stallList/stallList">
+      <view class="cate-icon">🍜</view>
+      <text class="cate-name">美食小吃</text>
+    </view>
+    <view class="cate-item" bindtap="goPage" data-url="/pages/stallList/stallList">
+      <view class="cate-icon">🥬</view>
+      <text class="cate-name">果蔬生鲜</text>
+    </view>
+    <view class="cate-item" bindtap="goPage" data-url="/pages/stallList/stallList">
+      <view class="cate-icon">👕</view>
+      <text class="cate-name">服饰日用</text>
+    </view>
+    <view class="cate-item" bindtap="goPage" data-url="/pages/stallList/stallList">
+      <view class="cate-icon">🛒</view>
+      <text class="cate-name">全部摊位</text>
+    </view>
+
+    <!-- 🔥 这里我给你安全加了 摊主入驻 入口 -->
+    <view class="cate-item" bindtap="goPage" data-url="/pages/joinStall/joinStall">
+      <view class="cate-icon">📝</view>
+      <text class="cate-name">摊主入驻</text>
+    </view>
+
+  </view>
+
+  <!-- 平台公告 -->
+  <view class="notice-box">
+    <view class="notice-left">📢 平台公告</view>
+    <view class="notice-text">同城市集开放时间更新，合理安排出摊</view>
+  </view>
+
+  <!-- 热门摊位推荐 -->
+  <view class="hot-title">
+    <text>热门摊位</text>
+    <text class="more-text" bindtap="goPage" data-url="/pages/stallList/stallList">查看更多 ></text>
+  </view>
+
+  <view class="hot-stall-list">
+    <view class="stall-item" wx:for="{{hotStallList}}" wx:key="id" bindtap="goStallDetail" data-id="{{item.id}}">
+      <image class="stall-img" src="{{item.img}}" mode="aspectFill"></image>
+      <view class="stall-info">
+        <text class="stall-name">{{item.name}}</text>
+        <text class="stall-type">{{item.type}}</text>
+        <text class="stall-distance">{{item.distance}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/seller/seller",
+    "pages/goods/goods",
+    "pages/detail/detail",
+    "pages/order/order",
+    "pages/sellerOrder/sellerOrder",
+    "pages/joinStall/joinStall",
+    "pages/stallList/stallList",
+    "pages/stallDetail/stallDetail",
+    "pages/stallGoods/stallGoods",
+    "pages/goodsDetail/goodsDetail",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0F3460",
+    "navigationBarTitleText": "地摊点位查询工具",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F5F5"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#0F3460",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "获取附近地摊位置"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
