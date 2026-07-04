@@ -1,29 +1,84 @@
-<!--index.wxml-->
 <view class="container">
-  <view class="title">快速了解云开发</view>
-  <view class="top_tip">免鉴权接口调用 免部署后台 高并发</view>
-  <view class="power" wx:key="title" wx:for="{{powerList}}" wx:for-item="power">
-    <view class="power_info" data-index="{{index}}" data-type="{{ power.type }}" bindtap="onClickPowerInfo">
-      <view class="power_info_text">
-        <view class="power_info_text_title">
-          {{power.title}}
-          <view class="power_info_text_tag" wx:if="{{power.tag}}">{{power.tag}}</view>
-        </view>
-        <view class="power_info_text_tip">{{power.tip}}</view>
+  <view class="page-title">AI工具合集</view>
+  <view class="tool-list">
+    <!-- AI短视频生成工具入口（可跳转） -->
+    <view class="tool-card" bindtap="goVideoGenerate">
+      <view class="tool-icon">🎬</view>
+      <view class="tool-info">
+        <text class="tool-name">AI短视频生成</text>
+        <text class="tool-desc">上传商品图+文案，多语种配音自定义比例时长</text>
       </view>
-      <image wx:if="{{!power.showItem && power.item.length}}" class="power_info_more" src="../../images/arrow.svg"></image>
-      <image wx:if="{{power.showItem && power.item.length}}" class="power_info_less" src="../../images/arrow.svg"></image>
-      <image wx:if="{{!power.item.length}}" class="power_item_icon" src="../../images/arrow.svg"></image>
+      <view class="tool-arrow">></view>
     </view>
-    <view wx:if="{{power.showItem}}">
-      <view wx:key="title" wx:for="{{power.item}}">
-        <view class="line"></view>
-        <view class="power_item" bindtap="jumpPage" data-type="{{ item.type }}" data-page="{{item.page}}">
-          <view class="power_item_title">{{item.title}}</view>
-          <image class="power_item_icon" src="../../images/arrow.svg"></image>
-        </view>
+
+    <!-- 占位工具1 AI商品图文海报生成 -->
+    <view class="tool-card">
+      <view class="tool-icon">🖼️</view>
+      <view class="tool-info">
+        <text class="tool-name">AI商品海报生成</text>
+        <text class="tool-desc">一键制作主图、详情海报、朋友圈带货图</text>
       </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具2 AI文案爆款改写 -->
+    <view class="tool-card">
+      <view class="tool-icon">📝</view>
+      <view class="tool-info">
+        <text class="tool-name">AI爆款文案改写</text>
+        <text class="tool-desc">标题、带货话术、小红书/抖音文案批量优化</text>
+      </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具3 AI数字人配音 -->
+    <view class="tool-card">
+      <view class="tool-icon">🧑‍🎤</view>
+      <view class="tool-info">
+        <text class="tool-name">AI数字人配音</text>
+        <text class="tool-desc">超多音色，多国语言生成高清人声旁白</text>
+      </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具4 AI图片智能修图 -->
+    <view class="tool-card">
+      <view class="tool-icon">✨</view>
+      <view class="tool-info">
+        <text class="tool-name">AI图片智能修图</text>
+        <text class="tool-desc">去水印、抠图、背景替换、商品美化</text>
+      </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具5 AI真实评价生成 -->
+    <view class="tool-card">
+      <view class="tool-icon">⭐</view>
+      <view class="tool-info">
+        <text class="tool-name">AI真实评价生成</text>
+        <text class="tool-desc">生成真实风格好评、追评、带图评价文案</text>
+      </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具6 AI直播脚本生成 -->
+    <view class="tool-card">
+      <view class="tool-icon">📺</view>
+      <view class="tool-info">
+        <text class="tool-name">AI直播脚本生成</text>
+        <text class="tool-desc">整场直播话术、逼单话术、互动脚本一键产出</text>
+      </view>
+      <view class="tool-arrow">></view>
+    </view>
+
+    <!-- 占位工具7 AI搜索标题优化 -->
+    <view class="tool-card">
+      <view class="tool-icon">🔍</view>
+      <view class="tool-info">
+        <text class="tool-name">AI搜索标题优化</text>
+        <text class="tool-desc">平台流量关键词组合，提升商品搜索曝光</text>
+      </view>
+      <view class="tool-arrow">></view>
     </view>
   </view>
-  <cloud-tip-modal showTipProps="{{showTip}}" title="{{title}}" content="{{content}}"></cloud-tip-modal>
 </view>
