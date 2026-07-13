@@ -1,4 +1,4 @@
-Page({
+﻿Page({
   data: {
     todayDate: "", name: "",
     startDate: "", startTime: "", endDate: "", endTime: "",
@@ -23,7 +23,8 @@ Page({
   },
   baseHoliday: [
     "2025-01-01","2025-05-01","2025-05-02","2025-05-03","2025-10-01","2025-10-02","2025-10-03",
-    "2026-01-01","2026-05-01","2026-05-02","2026-05-03","2026-10-01","2026-10-02","2026-10-03"
+    "2026-01-01","2026-05-01","2026-05-02","2026-05-03","2026-10-01","2026-10-02","2026-10-03",
+    "2027-01-01","2027-05-01","2027-05-02","2027-05-03","2027-10-01","2027-10-02","2027-10-03"
   ],
   onLoad() {
     let now = new Date()
@@ -202,8 +203,8 @@ Page({
 
     let txt = `【阿姨工资核算】
 阿姨姓名：${d.name || '未备注'}
-上户时间：${d.startDate} ${d.startTime}
-下户时间：${d.endDate} ${d.endTime}
+起始时间：${d.startDate} ${d.startTime}
+截止时间：${d.endDate} ${d.endTime}
 ${restLine}
 总服务时长：${d.showDayHour}
 实际服务时长：${d.realShowDayHour}
@@ -281,8 +282,8 @@ ${holidayLine}
 
     let txt = `【阿姨工资核算】
 阿姨姓名：${i.name || '未备注'}
-上户时间：${i.startDate} ${i.startTime}
-下户时间：${i.endDate} ${i.endTime}
+起始时间：${i.startDate} ${i.startTime}
+截止时间：${i.endDate} ${i.endTime}
 ${restLine}
 总服务时长：${i.showDayHour}
 实际服务时长：${i.realShowDayHour}

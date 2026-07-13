@@ -1,4 +1,4 @@
-<scroll-view scroll-y class="page-scroll">
+﻿<scroll-view scroll-y class="page-scroll">
   <view class="container">
     <view class="title">阿姨工资精准核算</view>
     <view class="item">
@@ -6,27 +6,27 @@
       <input placeholder="输入阿姨姓名/备注" bindinput="inputName" value="{{name}}" />
     </view>
     <view class="item start-item" style="background:{{startBgColor}}">
-      <text>上户日期</text>
+      <text>起始日期</text>
       <picker mode="date" end="{{todayDate}}" value="{{startDate}}" bindchange="bindStartDate">
-        <view class="picker-box">{{startDate || '请选择上户日期'}}</view>
+        <view class="picker-box">{{startDate || '请选择起始日期'}}</view>
       </picker>
     </view>
     <view class="item start-item" style="background:{{startBgColor}}">
-      <text>上户具体时间</text>
+      <text>起始时间</text>
       <picker mode="time" value="{{startTime}}" bindchange="bindStartTime">
-        <view class="picker-box">{{startTime || '请选择上户时间'}}</view>
+        <view class="picker-box">{{startTime || '请选择起始时间'}}</view>
       </picker>
     </view>
     <view class="item end-item" style="background:{{endBgColor}}">
-      <text>下户日期</text>
+      <text>截止日期</text>
       <picker mode="date" end="{{todayDate}}" value="{{endDate}}" bindchange="bindEndDate">
-        <view class="picker-box">{{endDate || '请选择下户日期'}}</view>
+        <view class="picker-box">{{endDate || '请选择截止日期'}}</view>
       </picker>
     </view>
     <view class="item end-item" style="background:{{endBgColor}}">
-      <text>下户具体时间</text>
+      <text>截止时间</text>
       <picker mode="time" value="{{endTime}}" bindchange="bindEndTime">
-        <view class="picker-box">{{endTime || '请选择下户时间'}}</view>
+        <view class="picker-box">{{endTime || '请选择截止时间'}}</view>
       </picker>
     </view>
 
