@@ -33,7 +33,7 @@
     <!-- 休息日：日历多选（新增，不改动原有布局） -->
     <view class="sub-title">休息日（可多选）</view>
     <view class="holiday-card">
-      <picker mode="date" bindchange="pickAddRestDay">
+      <picker mode="date" start="{{startDate}}" end="{{endDate}}" bindchange="pickAddRestDay">
         <view class="add-holiday-btn">➕ 选择日期添加休息日</view>
       </picker>
       <view class="holiday-list">
@@ -47,7 +47,7 @@
 
     <view class="sub-title">自定义节假日(2倍工资)</view>
     <view class="holiday-card">
-      <picker mode="date" bindchange="pickAddHoliday">
+      <picker mode="date" start="{{startDate}}" end="{{endDate}}" bindchange="pickAddHoliday">
         <view class="add-holiday-btn">➕ 选择日期添加</view>
       </picker>
       <view class="holiday-list">

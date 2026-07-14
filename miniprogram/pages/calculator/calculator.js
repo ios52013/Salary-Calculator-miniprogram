@@ -46,7 +46,15 @@ Page({
 
   // 新增：添加休息日
   pickAddRestDay(e) {
+     if (!this.data.startDate || !this.data.endDate) {
+       wx.showToast({ title: '请先设置起始和截止日期', icon: 'none' })
+       return
+     }
     let d = e.detail.value
+     if (d < this.data.startDate || d > this.data.endDate) {
+       wx.showToast({ title: '日期超出服务范围', icon: 'none' })
+       return
+     }
     let arr = this.data.restDayList
     if (arr.includes(d)) {
       wx.showToast({ title: "已添加", icon: "none" })
@@ -180,6 +188,7 @@ Page({
       finalSalary: '0.00',
       holidayTip: '',
        userHolidayList: [],
+       userHolidayList: [],
       startBgColor: startColor,
       endBgColor: endColor
     });
@@ -219,7 +228,15 @@ ${holidayLine}
     });
   },
   pickAddHoliday(e) {
+     if (!this.data.startDate || !this.data.endDate) {
+       wx.showToast({ title: '请先设置起始和截止日期', icon: 'none' })
+       return
+     }
     let d = e.detail.value
+     if (d < this.data.startDate || d > this.data.endDate) {
+       wx.showToast({ title: '日期超出服务范围', icon: 'none' })
+       return
+     }
     let arr = [...this.data.userHolidayList]
     if (arr.includes(d)) { wx.showToast({ title: "已存在", icon: "none" }); return }
     arr.push(d)
