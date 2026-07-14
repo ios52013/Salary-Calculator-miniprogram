@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "AI短视频生成",
+  "usingComponents": {},
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "保存生成的短视频到手机相册"
+    }
+  }
+}

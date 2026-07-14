@@ -1,0 +1,71 @@
+<view class="page-wrap">
+  <!-- 1.商品素材图（1-9张） -->
+  <view class="form-item">
+    <text class="form-label">商品素材图（1-9张）</text>
+    <view class="img-grid">
+      <block wx:for="{{imgList}}" wx:key="*this">
+        <view class="img-card">
+          <image src="{{item}}" mode="aspectFill" bindtap="previewImg" data-index="{{index}}"></image>
+          <view class="del-icon" bindtap="delImg" data-index="{{index}}">×</view>
+        </view>
+      </block>
+      <view class="add-img-btn" wx:if="{{imgList.length < 9}}" bindtap="chooseMedia">
+        <text class="plus">+</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 2.视频文案 input -->
+  <view class="form-item">
+    <text class="form-label">视频文案</text>
+    <textarea 
+      class="text-input" 
+      placeholder="输入视频创作文案，例如：今天要创作一款爆款商品短视频..."
+      maxlength="400"
+      value="{{scriptText}}"
+      bindinput="onScriptInput"
+    ></textarea>
+    <text class="word-num">{{scriptText.length}}/400</text>
+  </view>
+
+  <!-- 3.配音语言 yuyan -->
+  <view class="form-item">
+    <text class="form-label">配音语言</text>
+    <picker bindchange="onLangChange" value="{{langIndex}}" range="{{langOptions}}">
+      <view class="picker-box">{{langOptions[langIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 4.视频比例 ratio -->
+  <view class="form-item">
+    <text class="form-label">视频画面比例</text>
+    <picker bindchange="onRatioChange" value="{{ratioIndex}}" range="{{ratioOptions}}">
+      <view class="picker-box">{{ratioOptions[ratioIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 5.视频时长 duration -->
+  <view class="form-item">
+    <text class="form-label">视频时长</text>
+    <picker bindchange="onTimeChange" value="{{timeIndex}}" range="{{timeOptions}}">
+      <view class="picker-box">{{timeOptions[timeIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 生成按钮（已移除wxml不支持的trim()） -->
+  <button 
+    class="generate-btn" 
+    bindtap="createVideoTask" 
+    loading="{{isGenerating}}"
+    disabled="{{isGenerating || imgList.length === 0 || !scriptText}}"
+  >
+    {{isGenerating ? "AI视频生成中..." : "一键生成短视频"}}
+  </button>
+
+  <!-- 生成结果视频区域 -->
+  <view class="result-block" wx:if="{{videoUrl}}">
+    <text class="result-title">✅ 视频生成完成</text>
+    <video class="video-player" src="{{videoUrl}}" controls autoplay="{{false}}"></video>
+    <button class="save-btn" bindtap="saveVideoToAlbum">保存视频到相册</button>
+  </view>
+</view>
