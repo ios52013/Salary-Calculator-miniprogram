@@ -1,4 +1,4 @@
-﻿<scroll-view scroll-y class="page-scroll">
+<scroll-view scroll-y class="page-scroll">
   <view class="container">
     <view class="title">阿姨工资精准核算</view>
     <view class="item">
@@ -45,6 +45,20 @@
       </view>
     </view>
 
+    <view class="sub-title">自定义节假日(2倍工资)</view>
+    <view class="holiday-card">
+      <picker mode="date" bindchange="pickAddHoliday">
+        <view class="add-holiday-btn">➕ 选择日期添加</view>
+      </picker>
+      <view class="holiday-list">
+        <view class="hi" wx:for="{{userHolidayList}}" wx:key="*this">
+          <text>{{item}}</text>
+          <view class="del" bindtap="delHoliday" data-date="{{item}}">删除</view>
+        </view>
+        <text wx:if="{{userHolidayList.length===0}}" class="empty">暂无</text>
+      </view>
+    </view>
+
     <view class="item blue-bg">
       <text>总服务时长：{{showDayHour}}</text>
     </view>
@@ -84,19 +98,6 @@
       <view class="btn copy-btn" bindtap="copyWageInfo">一键复制</view>
     </view>
     <view class="save-btn" bindtap="saveRecord" wx:if="{{finalSalary != '0.00'}}">💾 保存本次记录</view>
-    <view class="sub-title">自定义节假日</view>
-    <view class="holiday-card">
-      <picker mode="date" bindchange="pickAddHoliday">
-        <view class="add-holiday-btn">➕ 选择日期添加</view>
-      </picker>
-      <view class="holiday-list">
-        <view class="hi" wx:for="{{userHolidayList}}" wx:key="*this">
-          <text>{{item}}</text>
-          <view class="del" bindtap="delHoliday" data-date="{{item}}">删除</view>
-        </view>
-        <text wx:if="{{userHolidayList.length===0}}" class="empty">暂无</text>
-      </view>
-    </view>
     <view class="sub-title">历史记录</view>
     <view class="history-item" wx:for="{{historyList}}" wx:key="index">
       <view class="h-top">

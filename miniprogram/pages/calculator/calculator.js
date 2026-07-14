@@ -1,4 +1,4 @@
-﻿Page({
+Page({
   data: {
     todayDate: "", name: "",
     startDate: "", startTime: "", endDate: "", endTime: "",
@@ -21,11 +21,6 @@
     ];
     return colors[Math.floor(Math.random() * colors.length)];
   },
-  baseHoliday: [
-    "2025-01-01","2025-05-01","2025-05-02","2025-05-03","2025-10-01","2025-10-02","2025-10-03",
-    "2026-01-01","2026-05-01","2026-05-02","2026-05-03","2026-10-01","2026-10-02","2026-10-03",
-    "2027-01-01","2027-05-01","2027-05-02","2027-05-03","2027-10-01","2027-10-02","2027-10-03"
-  ],
   onLoad() {
     let now = new Date()
     let today = now.getFullYear() + "-" + String(now.getMonth()+1).padStart(2,0) + "-" + String(now.getDate()).padStart(2,0)
@@ -39,9 +34,9 @@
       startBgColor: startColor,
       endBgColor: endColor
     })
-    let uh = wx.getStorageSync('userHolidayList') || []
+    // userHolidayList no longer restored from storage
     let hist = wx.getStorageSync('wageHistory') || []
-    this.setData({ userHolidayList: uh, historyList: hist })
+    this.setData({ historyList: hist })
   },
   inputName(e) { this.setData({ name: e.detail.value }) },
   bindStartDate(e) { this.setData({ startDate: e.detail.value }); this.calc() },
@@ -88,8 +83,8 @@
     let salary = Number(totalSalary) || 0
     if (!startDate || !startTime || !endDate || !endTime) return
 
-    let s = new Date(startDate + " " + startTime).getTime()
-    let e = new Date(endDate + " " + endTime).getTime()
+    let s = new Date(startDate + "T" + startTime + ":00").getTime()
+    let e = new Date(endDate + "T" + endTime + ":00").getTime()
     let nowTime = new Date().getTime()
 
     if (e > nowTime) {
@@ -101,7 +96,7 @@
       return
     }
 
-    let allH = [...this.baseHoliday, ...this.data.userHolidayList]
+    let allH = this.data.userHolidayList
     let totalH = (e - s) / 3600000
     let days = Math.floor(totalH / 24)
     let hours = Math.round(totalH % 24 * 10) / 10
@@ -120,14 +115,14 @@
     let hitDays = []
 
     while (cur <= endObj) {
-      let d = cur.toISOString().split('T')[0]
+      let d = cur.getFullYear() + '-' + String(cur.getMonth() + 1).padStart(2, '0') + '-' + String(cur.getDate()).padStart(2, '0')
       // 如果当天是休息日，直接跳过不算工时
       if (restDayList.includes(d)) {
         cur.setDate(cur.getDate() + 1)
         continue
       }
-      let ds = new Date(d + " 00:00").getTime()
-      let de = new Date(d + " 23:59").getTime()
+      let ds = new Date(d + "T00:00:00").getTime()
+      let de = new Date(d + "T23:59:00").getTime()
       let os = Math.max(s, ds)
       let oe = Math.min(e, de)
       let h = (oe - os) / 3600000
@@ -184,6 +179,7 @@
       holidayWage: '0.00',
       finalSalary: '0.00',
       holidayTip: '',
+       userHolidayList: [],
       startBgColor: startColor,
       endBgColor: endColor
     });
@@ -224,18 +220,18 @@ ${holidayLine}
   },
   pickAddHoliday(e) {
     let d = e.detail.value
-    let arr = this.data.userHolidayList
+    let arr = [...this.data.userHolidayList]
     if (arr.includes(d)) { wx.showToast({ title: "已存在", icon: "none" }); return }
     arr.push(d)
     this.setData({ userHolidayList: arr })
-    wx.setStorageSync('userHolidayList', arr)
+    // no longer persisted
     this.calc()
   },
   delHoliday(e) {
     let d = e.currentTarget.dataset.date
     let arr = this.data.userHolidayList.filter(i => i !== d)
     this.setData({ userHolidayList: arr })
-    wx.setStorageSync('userHolidayList', arr)
+    // no longer persisted
     this.calc()
   },
   saveRecord() {
